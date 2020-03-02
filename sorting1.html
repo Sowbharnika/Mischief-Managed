@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="angular.min.js"></script>
+      <title>Sorting using AngularJS</title>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script>
+
+function Ctrl($scope) {
+  $scope.friends =
+      [{ name:'ITALIAN', Marks:'83'},
+       { name:'CHINESE', Marks:'70'},
+       { name:'INDIAN', Marks:'80'},
+       { name:'FRENCH', Marks:'75'},
+       { name:'SPANISH', Marks:'60'},
+       { name:'AMERICAN', Marks:'80'}]
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="sortcss.css">
+  </head>
+
+
+  <body>
+    <div ng-controller="Ctrl" id="rcontent">
+<H1>POPULARITY OF CUISINES</H1>
+      <hr/>
+
+<table cellspacing='0'>
+<thead>
+<tr>
+<th><center><a href="" ng-click="predicate = 'name'; reverse=!reverse">CUISINES</a></center></th>
+<th><center><a href="" ng-click="predicate = 'Marks'; reverse=!reverse">POPULARITY</a></center></th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+<td>{{friend.name}}</td>
+<td>{{friend.Marks}}%</td>
+</tr>
+
+</tbody>
+</table>
+    </div>
+  </body>
+</html>
